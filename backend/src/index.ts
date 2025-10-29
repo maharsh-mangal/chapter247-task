@@ -1,6 +1,8 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import authRoutes from "./routes/auth";
+
 
 dotenv.config();
 
@@ -11,6 +13,10 @@ app.use(
         origin: process.env.CORS_ORIGIN,
     })
 );
+
+// Mount auth routes
+app.use("/api", authRoutes);
+
 
 const PORT = process.env.PORT || 4000;
 
